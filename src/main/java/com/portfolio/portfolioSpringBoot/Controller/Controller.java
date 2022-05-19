@@ -5,10 +5,14 @@ package com.portfolio.portfolioSpringBoot.Controller;
 import com.portfolio.portfolioSpringBoot.model.Educacion;
 import com.portfolio.portfolioSpringBoot.model.Personas;
 import com.portfolio.portfolioSpringBoot.model.Experiencias;
+import com.portfolio.portfolioSpringBoot.model.Habilidades;
+import com.portfolio.portfolioSpringBoot.model.Proyectos;
 //import com.portfolio.portfolioSpringBoot.service.IDomicilioService;
 import com.portfolio.portfolioSpringBoot.service.IEducacionService;
 import com.portfolio.portfolioSpringBoot.service.IExperienciasService;
+import com.portfolio.portfolioSpringBoot.service.IHabilidadService;
 import com.portfolio.portfolioSpringBoot.service.IPersonasService;
+import com.portfolio.portfolioSpringBoot.service.IProyectoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,6 +49,9 @@ public class Controller {
     }
     
     
+    
+    
+    
     //---- Educacion ----
     
     @Autowired
@@ -66,6 +73,12 @@ public class Controller {
       eduServ.borrarEducacion(id);
     }
     
+    
+    
+    
+    
+    
+    
         //---- Experiencias ----
     
     @Autowired
@@ -85,6 +98,58 @@ public class Controller {
     @DeleteMapping ("/experiencia/delete/{id}")
     public void borrarExperiencia (@PathVariable Long id){
       expeServ.borrarExperiencia(id);
+    }
+    
+    
+    
+    
+    
+    
+            //---- Habilidades ----
+    
+    @Autowired
+    private IHabilidadService habServ;
+    
+    @PostMapping ("/habilidad/new")
+    public void agregarHabilidad (@RequestBody Habilidades hab){
+        habServ.crearHabilidad(hab);
+    }
+    
+    @GetMapping("/habilidad/ver")
+    @ResponseBody
+    public List<Habilidades> verHabilidad(){
+        return habServ.verHabilidades();
+    }
+    
+    @DeleteMapping ("/habilidad/delete/{id}")
+    public void borrarHabilidad (@PathVariable Long id){
+      habServ.borrarHabilidad(id);
+    }
+    
+    
+    
+    
+    
+    
+                //---- Proyectos ----
+    
+    @Autowired
+    private IProyectoService proyServ;
+    
+    @PostMapping ("/proyecto/new")
+    public void agregarProyecto (@RequestBody Proyectos proy){
+        proyServ.crearProyecto(proy);
+    }
+    
+    @GetMapping("/proyecto/ver")
+    @ResponseBody
+    public List<Proyectos> verProyecto(){
+        return proyServ.verProyectos();
+    }
+    
+    @DeleteMapping ("/proyecto/delete/{id}")
+    public void borrarProyecto (@PathVariable Long id){
+      proyServ.borrarProyecto(id);
     }
     
     
