@@ -4,8 +4,10 @@ package com.portfolio.portfolioSpringBoot.Controller;
 //import com.portfolio.portfolioSpringBoot.model.Domicilio;
 import com.portfolio.portfolioSpringBoot.model.Educacion;
 import com.portfolio.portfolioSpringBoot.model.Personas;
+import com.portfolio.portfolioSpringBoot.model.Experiencias;
 //import com.portfolio.portfolioSpringBoot.service.IDomicilioService;
 import com.portfolio.portfolioSpringBoot.service.IEducacionService;
+import com.portfolio.portfolioSpringBoot.service.IExperienciasService;
 import com.portfolio.portfolioSpringBoot.service.IPersonasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,27 @@ public class Controller {
     @DeleteMapping ("/educacion/delete/{id}")
     public void borrarEducacion (@PathVariable Long id){
       eduServ.borrarEducacion(id);
+    }
+    
+        //---- Experiencias ----
+    
+    @Autowired
+    private IExperienciasService expeServ;
+    
+    @PostMapping ("/experiencia/new")
+    public void agregarExperiencia (@RequestBody Experiencias expe){
+        expeServ.crearExperiencia(expe);
+    }
+    
+    @GetMapping("/experiencia/ver")
+    @ResponseBody
+    public List<Experiencias> verExperiencia(){
+        return expeServ.verExperiencias();
+    }
+    
+    @DeleteMapping ("/experiencia/delete/{id}")
+    public void borrarExperiencia (@PathVariable Long id){
+      expeServ.borrarExperiencia(id);
     }
     
     
