@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 public class Educacion{
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_educacion;

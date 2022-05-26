@@ -7,12 +7,14 @@ import com.portfolio.portfolioSpringBoot.model.Personas;
 import com.portfolio.portfolioSpringBoot.model.Experiencias;
 import com.portfolio.portfolioSpringBoot.model.Habilidades;
 import com.portfolio.portfolioSpringBoot.model.Proyectos;
+import com.portfolio.portfolioSpringBoot.model.User;
 //import com.portfolio.portfolioSpringBoot.service.IDomicilioService;
 import com.portfolio.portfolioSpringBoot.service.IEducacionService;
 import com.portfolio.portfolioSpringBoot.service.IExperienciasService;
 import com.portfolio.portfolioSpringBoot.service.IHabilidadService;
 import com.portfolio.portfolioSpringBoot.service.IPersonasService;
 import com.portfolio.portfolioSpringBoot.service.IProyectoService;
+import com.portfolio.portfolioSpringBoot.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +28,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
+    
+    
+    //User
+    
+    @Autowired
+    private IUserService userServ;
+    
+    
+    @PostMapping("/user/validar")
+    @ResponseBody
+    public boolean validarUser(@RequestBody User user){
+       return userServ.validarUser(user);
+    }
 
     //---- Persona -----
     
@@ -58,8 +73,8 @@ public class Controller {
     private IEducacionService eduServ;
     
     @PostMapping ("/educacion/new")
-    public void agregarEducacion (@RequestBody Educacion edu){
-        eduServ.crearEducacion(edu);
+    public Educacion agregarEducacion (@RequestBody Educacion edu){        
+        return eduServ.crearEducacion(edu);
     }
     
     @GetMapping("/educacion/ver")
@@ -85,8 +100,8 @@ public class Controller {
     private IExperienciasService expeServ;
     
     @PostMapping ("/experiencia/new")
-    public void agregarExperiencia (@RequestBody Experiencias expe){
-        expeServ.crearExperiencia(expe);
+    public Experiencias agregarExperiencia (@RequestBody Experiencias expe){
+        return expeServ.crearExperiencia(expe);
     }
     
     @GetMapping("/experiencia/ver")
@@ -111,8 +126,8 @@ public class Controller {
     private IHabilidadService habServ;
     
     @PostMapping ("/habilidad/new")
-    public void agregarHabilidad (@RequestBody Habilidades hab){
-        habServ.crearHabilidad(hab);
+    public Habilidades agregarHabilidad (@RequestBody Habilidades hab){
+        return habServ.crearHabilidad(hab);
     }
     
     @GetMapping("/habilidad/ver")
@@ -137,8 +152,8 @@ public class Controller {
     private IProyectoService proyServ;
     
     @PostMapping ("/proyecto/new")
-    public void agregarProyecto (@RequestBody Proyectos proy){
-        proyServ.crearProyecto(proy);
+    public Proyectos agregarProyecto (@RequestBody Proyectos proy){
+        return proyServ.crearProyecto(proy);
     }
     
     @GetMapping("/proyecto/ver")

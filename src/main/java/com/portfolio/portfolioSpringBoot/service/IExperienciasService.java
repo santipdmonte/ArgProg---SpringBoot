@@ -7,7 +7,7 @@ import java.util.List;
 public interface IExperienciasService {
     
     public List<Experiencias> verExperiencias();
-    public void crearExperiencia (Experiencias Expe);
+    public Experiencias crearExperiencia (Experiencias Expe);
     public void borrarExperiencia (Long id);
     public Experiencias buscarExperiencia (Long id);
 }

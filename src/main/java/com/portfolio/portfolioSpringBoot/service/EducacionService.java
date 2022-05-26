@@ -19,8 +19,8 @@ public class EducacionService implements IEducacionService{
     }
 
     @Override
-    public void crearEducacion(Educacion edu) {
-        eduRepo.save(edu);
+    public Educacion crearEducacion(Educacion edu) {
+        return eduRepo.save(edu);
     }
 
     @Override

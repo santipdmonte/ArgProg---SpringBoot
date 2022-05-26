@@ -7,7 +7,7 @@ import java.util.List;
 public interface IProyectoService {
  
     public List<Proyectos> verProyectos();
-    public void crearProyecto (Proyectos Proy);
+    public Proyectos crearProyecto (Proyectos Proy);
     public void borrarProyecto (Long id);
     public Proyectos buscarProyecto (Long id);
 }
