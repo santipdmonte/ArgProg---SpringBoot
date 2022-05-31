@@ -18,7 +18,7 @@ public class PortfolioSpringBootApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://portfolio-arg-programa.web.app").allowedMethods("*").allowedHeaders("*");
+				registry.addMapping("/**").allowedOrigins("/**").allowedMethods("*").allowedHeaders("*");
 			}
 		};
 	}
