@@ -27,5 +27,9 @@ public class UserService implements IUserService{
         }
         return i;
     }
-    
+
+    @Override
+    public List<User> verUser() {
+        return userRepo.findAll();
+    }    
 }

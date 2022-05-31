@@ -2,12 +2,14 @@
 package com.portfolio.portfolioSpringBoot.Controller;
 
 //import com.portfolio.portfolioSpringBoot.model.Domicilio;
+import com.portfolio.portfolioSpringBoot.model.AcercaDe;
 import com.portfolio.portfolioSpringBoot.model.Educacion;
 import com.portfolio.portfolioSpringBoot.model.Personas;
 import com.portfolio.portfolioSpringBoot.model.Experiencias;
 import com.portfolio.portfolioSpringBoot.model.Habilidades;
 import com.portfolio.portfolioSpringBoot.model.Proyectos;
 import com.portfolio.portfolioSpringBoot.model.User;
+import com.portfolio.portfolioSpringBoot.service.IAcercaDeService;
 //import com.portfolio.portfolioSpringBoot.service.IDomicilioService;
 import com.portfolio.portfolioSpringBoot.service.IEducacionService;
 import com.portfolio.portfolioSpringBoot.service.IExperienciasService;
@@ -41,6 +43,12 @@ public class Controller {
     public boolean validarUser(@RequestBody User user){
        return userServ.validarUser(user);
     }
+    
+    //@GetMapping("/user/traer")
+    //@ResponseBody
+    //public List<User> verUser(){
+    //    return userServ.verUser();
+    //}
 
     //---- Persona -----
     
@@ -146,7 +154,7 @@ public class Controller {
     
     
     
-                //---- Proyectos ----
+     //---- Proyectos ----
     
     @Autowired
     private IProyectoService proyServ;
@@ -166,6 +174,29 @@ public class Controller {
     public void borrarProyecto (@PathVariable Long id){
       proyServ.borrarProyecto(id);
     }
+    
+        
+     //---- Acerca De ----
+    
+    @Autowired
+    private IAcercaDeService acerServ;
+    
+    @PostMapping ("/acercade/new")
+    public AcercaDe agregarAcercaDe (@RequestBody AcercaDe acer){
+        return acerServ.crearAcercaDe(acer);
+    }
+    
+    @GetMapping("/acercade/ver")
+    @ResponseBody
+    public List<AcercaDe> verAcercaDe(){
+        return acerServ.verAcercaDe();
+    }
+    
+    @DeleteMapping ("/acercade/delete/{id}")
+    public void borrarAcercaDe (@PathVariable Long id){
+      acerServ.borrarAcercaDe(id);
+    }
+    
     
     
     
