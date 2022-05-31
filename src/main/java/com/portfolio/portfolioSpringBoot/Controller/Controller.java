@@ -39,7 +39,7 @@ public class Controller {
     @Autowired
     private IUserService userServ;
     
-    
+    @CrossOrigin(origins = "http://portfolio-arg-programa.web.app/", maxAge = 3600)
     @PostMapping("/user/validar")
     @ResponseBody
     public boolean validarUser(@RequestBody User user){
