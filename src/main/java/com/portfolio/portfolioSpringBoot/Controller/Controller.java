@@ -44,6 +44,11 @@ public class Controller {
        return userServ.validarUser(user);
     }
     
+    @PostMapping ("/user/nuevo")
+    public User agregarUsuario (@RequestBody User user){
+        return userServ.agregarUsuario(user);
+    }
+    
     //@GetMapping("/user/traer")
     //@ResponseBody
     //public List<User> verUser(){

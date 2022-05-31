@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface IUserService {
     public boolean validarUser(User user);
+    public User agregarUsuario(User user);
     public List<User> verUser();
 }

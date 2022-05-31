@@ -32,4 +32,9 @@ public class UserService implements IUserService{
     public List<User> verUser() {
         return userRepo.findAll();
     }    
+
+    @Override
+    public User agregarUsuario(User user) {
+        return userRepo.save(user);    
+    }
 }
