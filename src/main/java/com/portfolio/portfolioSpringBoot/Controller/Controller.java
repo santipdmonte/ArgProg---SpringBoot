@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "*")
 @RestController
 public class Controller {
     
@@ -39,7 +38,6 @@ public class Controller {
     @Autowired
     private IUserService userServ;
     
-    @CrossOrigin(origins = "*")
     @PostMapping("/user/validar")
     @ResponseBody
     public boolean validarUser(@RequestBody User user){
