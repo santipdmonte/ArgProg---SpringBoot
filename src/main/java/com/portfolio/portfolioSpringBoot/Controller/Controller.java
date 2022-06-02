@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "http://portfolio-arg-programa.web.app/", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 public class Controller {
     
@@ -39,7 +39,7 @@ public class Controller {
     @Autowired
     private IUserService userServ;
     
-    @CrossOrigin(origins = "http://portfolio-arg-programa.web.app/", maxAge = 3600)
+    @CrossOrigin(origins = "*")
     @PostMapping("/user/validar")
     @ResponseBody
     public boolean validarUser(@RequestBody User user){
