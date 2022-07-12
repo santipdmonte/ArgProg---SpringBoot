@@ -18,24 +18,29 @@ public class PortfolioSpringBootApplication {
 		SpringApplication.run(PortfolioSpringBootApplication.class, args);
 	}
         
-        @Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**")
-                                        .allowedOrigins("http://portfolio-arg-programa.web.app/")
-                                           .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
-                                        .allowedMethods("*")
-                                        .allowedHeaders("*");
-                                registry.addMapping("/**")
-                                        .allowedOrigins("http://localhost:4200/")
-                                          .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
-                                        .allowedMethods("*")
-                                        .allowedHeaders("*");
-			}
-		};
-	}
+        //@Bean
+	//public WebMvcConfigurer corsConfigurer() {
+	//	return new WebMvcConfigurer() {
+	//		@Override
+	//		public void addCorsMappings(CorsRegistry registry) {
+	//			registry.addMapping("/**")
+        //                                .allowedOrigins("http://portfolio-arg-programa.web.app/")
+        //                                   .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+        //                                .allowedMethods("*")
+        //                                .allowedHeaders("*");
+        //                        registry.addMapping("/**")
+        //                                .allowedOrigins("http://localhost:4200/")
+        //                                  .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+        //                                .allowedMethods("*")
+         //                               .allowedHeaders("*");
+	//		}
+	//	};
+	//}
+        
+        
+        
+        
+        
         
         //@Bean
         //public CorsFilter corsFilter() {
